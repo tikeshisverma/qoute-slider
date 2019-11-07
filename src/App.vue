@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="container" id="app">
+    <Slider v-bind:quotes="quotes" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Slider from "./components/slider.vue";
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+  name: "app",
+  data() {
+    return {
+      quotes: [
+        "That's one small step for a man, one giant leap for mankind - Neil Armstrong",
+        "The Universe is under no obligation to make sense to you - Neil deGrasse Tyson",
+        "I would like to die on Mars. Just not on impact - Elon Musk",
+        "If we can conquer space, we can conquer childhood hunger - Buzz Aldrin",
+        "The eternal silence of these infinite spaces frightens me - Blaise Pascal"
+      ]
+    };
+  },
+  methods: {},
+  created() {},
+  components: { Slider }
+};
 </script>
 
 <style>
+html,
+body {
+  height: 100%;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100%;
 }
 </style>
