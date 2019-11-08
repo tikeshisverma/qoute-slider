@@ -29,6 +29,8 @@ export default {
 html,
 body {
   height: 100%;
+font-family: 'Poiret One', cursive;
+font-family: 'Chonburi', cursive;
 }
 #app {
   height: 100%;
