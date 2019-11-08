@@ -22,6 +22,7 @@
 <script>
 export default {
   name: "Slider",
+
   computed: {
     currentQoute() {
       return this.quotes[Math.abs(this.counter) % this.quotes.length];
@@ -34,7 +35,16 @@ export default {
   },
       watch: {
         currentQoute: function() {
-            // Get canvas context
+          this.renderQoute()
+        }
+    },
+  props: ["quotes"],
+  mounted(){
+    this.renderQoute();
+  },
+  methods: {
+    renderQoute() {
+                  // Get canvas context
             const canvasElement = this.$refs.canvas
             var ctx = canvasElement.getContext("2d");
             // Clear the canvas
@@ -51,10 +61,7 @@ export default {
             let x = canvasElement.width / 2;
             let y = canvasElement.height / 2;
             this.wrapText(ctx, this.currentQoute, x, y, maxWidth, lineHeight)
-        }
     },
-  props: ["quotes"],
-  methods: {
     download() {
       this.exportCanvasAsPNG(this.$refs.canvas, 'test')
     },
